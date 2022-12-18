@@ -15,11 +15,11 @@ return new class extends Migration
     {
         Schema::create('jira_logs', function (Blueprint $table) {
             $table->id();
+            $table->integer('jira_post_id')->nullable();
             $table->string('issue_url');
             $table->integer('issue_id');
             $table->jsonb('fields');
             $table->integer('created');
-            $table->timestamps();
         });
     }
 

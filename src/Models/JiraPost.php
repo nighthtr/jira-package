@@ -26,8 +26,19 @@ class JiraPost extends Model
 {
     use HasTimestamps;
 
+    protected $dateFormat = 'U';
+
     const CREATED_AT = 'date_created';
     const UPDATED_AT = 'date_updated';
+
+    /**
+     * @var string[]
+     */
+    protected $fillable = [
+        'status',
+        'name',
+        'content',
+    ];
 
     /**
      * @var string[]

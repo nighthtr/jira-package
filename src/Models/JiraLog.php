@@ -4,9 +4,10 @@ declare(strict_types=1);
 
 namespace Nighthtr\Jira\Models;
 
-use Illuminate\Database\Eloquent\Concerns\HasTimestamps;
+use Illuminate\Database\Eloquent\Casts\AsCollection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Support\Collection;
 
 /**
  * Class JiraLog
@@ -16,16 +17,28 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
  * @property int $jira_post_id
  * @property string $issue_url
  * @property int $issue_id
- * @property array $fields
+ * @property Collection $fields
  * @property int $created
- * @property int $created_at
- * @property int $updated_at
  *
  * @property-read JiraPost|null $jiraPost
  */
 class JiraLog extends Model
 {
-    use HasTimestamps;
+    protected $dateFormat = 'U';
+
+    const CREATED_AT = null;
+    const UPDATED_AT = null;
+
+    /**
+     * @var string[]
+     */
+    protected $fillable = [
+        'jira_post_id',
+        'issue_url',
+        'issue_id',
+        'fields',
+        'created',
+    ];
 
     /**
      * @var string[]
@@ -35,10 +48,8 @@ class JiraLog extends Model
         'jira_post_id' => 'integer',
         'issue_url' => 'string',
         'issue_id' => 'integer',
-        'fields' => 'array',
+        'fields' => AsCollection::class,
         'created' => 'integer',
-        'created_at' => 'integer',
-        'updated_at' => 'integer',
     ];
 
     /**
