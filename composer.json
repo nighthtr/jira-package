@@ -11,5 +11,12 @@
             "email": "nighthtr@gmail.com"
         }
     ],
-    "require": {}
+    "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Nighthtr\\Jira\\JiraServiceProvider"
+            ]
+        }
+    }
 }
