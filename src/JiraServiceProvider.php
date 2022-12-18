@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Nighthtr\Jira;
 
 use Illuminate\Support\ServiceProvider;
+use Nighthtr\Jira\Console\Commands\JiraPostsUpdateCommand;
 
 /**
  * Class JiraServiceProvider
@@ -20,5 +21,11 @@ class JiraServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
 
         $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
+
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                JiraPostsUpdateCommand::class,
+            ]);
+        }
     }
 }

@@ -24,10 +24,13 @@ use Illuminate\Support\Collection;
  */
 class JiraLog extends Model
 {
-    protected $dateFormat = 'U';
-
     const CREATED_AT = null;
     const UPDATED_AT = null;
+
+    /**
+     * @var string
+     */
+    protected $dateFormat = 'U';
 
     /**
      * @var string[]
