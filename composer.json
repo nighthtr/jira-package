@@ -11,7 +11,10 @@
             "email": "nighthtr@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "php": "^8.1",
+        "laravel/framework": "^9.19"
+    },
     "extra": {
         "laravel": {
             "providers": [
