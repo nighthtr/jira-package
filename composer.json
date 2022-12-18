@@ -1,0 +1,15 @@
+{
+    "name": "nighthtr/jira-package",
+    "autoload": {
+        "psr-4": {
+            "Nighthtr\\Jira\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ivan Timofeev",
+            "email": "nighthtr@gmail.com"
+        }
+    ],
+    "require": {}
+}
